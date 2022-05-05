@@ -1,0 +1,21 @@
+body {
+    width: 300px; 
+    text-align: center;
+}
+
+
+img {
+    width: 70%; 
+    margin-top: 20px;
+}
+
+#bg_cookies {
+    background-color: rosybrown;
+    height: 100px; 
+}
+
+#number_cookies {
+    background-color: antiquewhite;
+    height: 50px; 
+    text-align: center;
+}
