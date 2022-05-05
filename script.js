@@ -1,8 +1,9 @@
-function getCookies(){
-    let cookies = document.cookie.split(";");
-    return cookies;
-  }
+//let url = window.location.hostname;
+//console.log(url)
 
-  getCookies(); 
-  
-  console.log(getCookies()); 
+chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+
+    if (msg.action == 'cookie_detected') {
+      console.log(msg.data);
+    }
+  });

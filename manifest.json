@@ -3,6 +3,9 @@
     "description": "Automatically refuse all cookies.",
     "version": "0.1",
     "manifest_version": 3,
+    "permissions": [
+        "storage", "tabs"
+    ],
     "icons": {
         "16": "/images/cookie-16.png",
         "48": "/images/cookie-48.png",
@@ -21,6 +24,9 @@
             ],
             "css": [
                 "main.css"
+            ],
+            "js" : [
+                "script.js"
             ]
         }
     ]
