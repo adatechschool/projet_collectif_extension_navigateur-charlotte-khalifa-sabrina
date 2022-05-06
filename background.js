@@ -1,4 +1,4 @@
-chrome.storage.local.set({ "www.nike.com": "hf_cookie_text_cookieReject" }, function () {
+chrome.storage.local.set({ "nike.com": "hf_cookie_text_cookieReject" }, function () {
     console.log('Value is set to');
 });
 
@@ -6,13 +6,13 @@ chrome.storage.local.set({ "stackoverflow.com": "hello la miff" }, function () {
     console.log('Value is set to');
 });
 
-// - detecter page chargée
+// - Détecter page chargée
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete') {
         console.log("page loaded !")
 
-        // - get cureent url
+        // - get current url
         //let url = window.location.hostname; 
 
         // console.log(tab)
@@ -24,14 +24,12 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
                 chrome.storage.local.get([url], (data) => {
                     console.log(data)
                     chrome.tabs.sendMessage(tabs[0].id, { action: "cookie_detected", data: data }, function (response) {
-                        //
                     });
                 })
             }
 
         })
         // - chrome storage get sur url
-        //chrome.storage.local.get([url], (data) => console.log(data))
     }
 })
 
