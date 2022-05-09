@@ -1,13 +1,20 @@
-//let url = window.location.hostname;
-//console.log(url)
+let url = window.location.hostname.slice(4);
+console.log(url)
 
-chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
+
+chrome.runtime.onMessage.addListener(function ( msg, sender, sendResponse) {
 
   if (msg.action == 'cookie_detected') {
-    let buttonId = msg.data
-    console.log(buttonId);
-    //chrome.action.getPopup.getElementById("pre-cookie-modal-body p6-sm").click()
-    document.getElementsByClassName("pre-cookie-modal-body p6-sm").style.backgroundColor = "#FF0000"
+    let buttonKey = msg.data
+    console.log(buttonKey);
+    //console.log(buttonKey["nike.com"])
+    let buttonId = buttonKey[url]; 
+    if(document.getElementById(buttonId) !== null && document.getElementById(buttonId) !== undefined){
+      document.getElementById(buttonId).click()
+    } else {
+      console.log(buttonId)
+      document.getElementsByClassName(buttonId)[0].click(); 
+    }
   }
 });
 

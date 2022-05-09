@@ -2,9 +2,31 @@ chrome.storage.local.set({ "nike.com": "hf_cookie_text_cookieReject" }, function
     console.log('Value is set to');
 });
 
-chrome.storage.local.set({ "stackoverflow.com": "hello la miff" }, function () {
+chrome.storage.local.set({ "casino.fr": "onetrust-reject-all-handler" }, function () {
     console.log('Value is set to');
 });
+
+chrome.storage.local.set({ "gucci.com": "onetrust-close-btn-handler banner-close-button ot-close-link" }, function () {
+    console.log('Value is set to');
+});
+
+chrome.storage.local.set({ "carrefour.fr": "onetrust-reject-all-handler" }, function () {
+    console.log('Value is set to');
+});
+
+chrome.storage.local.set({ "ikea.com": "onetrust-close-btn-handler banner-close-button ot-close-link" }, function () {
+    console.log('Value is set to');
+});
+
+chrome.storage.local.set({ "maisonsdumonde.com": "footer_tc_privacy_button" }, function () {
+    console.log('Value is set to');
+});
+
+chrome.storage.local.set({ "journaldunet.com": "sc-17rhrsc-2 fUnQAr" }, function () {
+    console.log('Value is set to');
+});
+
+
 
 // - Détecter page chargée
 
