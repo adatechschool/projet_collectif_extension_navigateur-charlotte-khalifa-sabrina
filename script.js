@@ -4,6 +4,9 @@ console.log(url)
 
 chrome.runtime.onMessage.addListener(function ( msg, sender, sendResponse) {
 
+  setTimeout(()=> {
+
+  
   if (msg.action == 'cookie_detected') {
     let buttonKey = msg.data
     console.log(buttonKey);
@@ -16,6 +19,7 @@ chrome.runtime.onMessage.addListener(function ( msg, sender, sendResponse) {
       document.getElementsByClassName(buttonId)[0].click(); 
     }
   }
+},4000)
   return Promise.resolve("Réponse pour éviter une erreur dans la console")
 });
 
