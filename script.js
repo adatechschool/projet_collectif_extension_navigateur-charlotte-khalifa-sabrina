@@ -16,7 +16,10 @@ chrome.runtime.onMessage.addListener(function ( msg, sender, sendResponse) {
       document.getElementsByClassName(buttonId)[0].click(); 
     }
   }
+  return Promise.resolve("Réponse pour éviter une erreur dans la console")
 });
+
+
 
 // try a more visual thing, like changing text to blue 
 // how to interact with popups js
