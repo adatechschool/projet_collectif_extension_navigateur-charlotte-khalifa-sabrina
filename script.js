@@ -1,3 +1,16 @@
+setTimeout(() => {
+let buttonTwo = document.getElementsByTagName("button");
+for (var i = 0; i < buttonTwo.length; i++) {
+  if (buttonTwo[i].innerHTML === "Continuer sans accepter" || buttonTwo[i].innerHTML === "Refuser" ) {
+    buttonTwo[i].click();
+    console.log(buttonTwo[i]);
+  }
+}
+}, 4000)
+
+
+console.log("coucou");
+
 //let url = window.location.hostname.slice(4);
 let fullUrl = location.href
 let url = getHostname(fullUrl)
@@ -71,7 +84,6 @@ for (const el of Array.from(button)) {
 //   console.log("button click")
 //   alert("button click")
 // })
-
 
 
 
