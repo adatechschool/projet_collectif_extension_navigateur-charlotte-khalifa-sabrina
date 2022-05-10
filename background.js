@@ -38,9 +38,6 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete') {
         console.log("page loaded !")
 
-        // - get current url
-        //let url = window.location.hostname; 
-
         // console.log(tab)
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             console.log(tabs[0])
@@ -50,12 +47,13 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
                 chrome.storage.local.get([url], (data) => {
                     console.log(data)
                     chrome.tabs.sendMessage(tabs[0].id, { action: "cookie_detected", data: data }, function (response) {
+                        console.log("you've been here before")
+                        console.log(data)
                     });
                 })
             }
 
         })
-        // - chrome storage get sur url
     }
 })
 
