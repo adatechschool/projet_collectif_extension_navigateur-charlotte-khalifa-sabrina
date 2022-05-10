@@ -27,3 +27,24 @@ chrome.runtime.onMessage.addListener(function ( msg, sender, sendResponse) {
 
 // try a more visual thing, like changing text to blue 
 // how to interact with popups js
+
+const button = document.getElementsByTagName("button")
+for (const el of Array.from(button)) {
+  el.addEventListener("click",()=>{
+    console.log("button click")
+  alert("button click"  + this.className)
+  
+});
+}  
+
+
+
+// button.addEventListener("click", ()=>{
+//   console.log("button click")
+//   alert("button click")
+// })
+
+
+
+
+
