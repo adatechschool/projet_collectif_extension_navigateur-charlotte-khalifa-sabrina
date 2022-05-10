@@ -26,6 +26,10 @@ chrome.storage.local.set({ "journaldunet.com": "sc-17rhrsc-2 fUnQAr" }, function
     console.log('Value is set to');
 });
 
+chrome.storage.local.set({ "journaldunet.com": "sc-17rhrsc-2 fUnQAr" }, function () {
+    console.log('Value is set to');
+});
+
 
 
 // - Détecter page chargée
