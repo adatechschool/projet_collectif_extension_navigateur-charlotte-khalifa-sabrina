@@ -1,14 +1,27 @@
 setTimeout(() => {
 let buttonTwo = document.getElementsByTagName("button");
 for (var i = 0; i < buttonTwo.length; i++) {
-  if (buttonTwo[i].innerHTML === "Continuer sans accepter" || buttonTwo[i].innerHTML === "Refuser" ) {
+  let lowerCaseButton = buttonTwo[i].innerHTML.toLowerCase();
+  if (lowerCaseButton === "continuer sans accepter" || lowerCaseButton === "refuser" || lowerCaseButton === "rejeter") {
     buttonTwo[i].click();
     console.log(buttonTwo[i]);
+    console.log(lowerCaseButton);
   }
 }
 }, 4000)
 
-
+setTimeout(() => {
+  let buttonThree = document.getElementsByTagName("span");
+  for (var i = 0; i < buttonThree.length; i++) {
+    let lowerCaseButtonTwo = buttonThree[i].innerHTML.toLowerCase();
+    if (lowerCaseButtonTwo === "rejeter") {
+      buttonThree[i].click();
+      console.log(buttonThree[i]);
+      console.log(lowerCaseButtonTwo);
+    }
+  }
+  }, 4000)
+  
 console.log("coucou");
 
 //let url = window.location.hostname.slice(4);
