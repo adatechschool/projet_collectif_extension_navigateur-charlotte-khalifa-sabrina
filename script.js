@@ -1,68 +1,46 @@
 setTimeout(() => {
-let buttonTwo = document.getElementsByTagName("button");
-for (var i = 0; i < buttonTwo.length; i++) {
-  let lowerCaseButton = buttonTwo[i].innerHTML.toLowerCase();
-  if (lowerCaseButton === "continuer sans accepter" || lowerCaseButton === "refuser" || lowerCaseButton === "rejeter") {
-    buttonTwo[i].click();
-    console.log(buttonTwo[i]);
-    console.log(lowerCaseButton);
-  }
-}
-}, 4000)
-
-setTimeout(() => {
-  let buttonThree = document.getElementsByTagName("span");
-  for (var i = 0; i < buttonThree.length; i++) {
-    let lowerCaseButtonTwo = buttonThree[i].innerHTML.toLowerCase();
-    if (lowerCaseButtonTwo === "rejeter") {
-      buttonThree[i].click();
-      console.log(buttonThree[i]);
-      console.log(lowerCaseButtonTwo);
+    let buttonTwo = document.querySelectorAll('button, span, div');
+    for (var i = 0; i < buttonTwo.length; i++) {
+      let lowerCaseButton = buttonTwo[i].innerHTML.toLowerCase().trim();
+      if (lowerCaseButton === "continuer sans accepter" || lowerCaseButton === "refuser" || lowerCaseButton === "rejeter" || lowerCaseButton === "tout refuser") {
+        buttonTwo[i].click();
+        console.log(buttonTwo[i]);
+        console.log(lowerCaseButton);
+      }
     }
-  }
-  }, 4000)
-  
-console.log("coucou");
+    }, 4000)
 
-//let url = window.location.hostname.slice(4);
-let fullUrl = location.href
+// Extract domain name from url using a regex
+let fullUrl = location.href 
 let url = getHostname(fullUrl)
-console.log("This is the full url =" + url)
 
 function getHostname(path) {
-  console.log(path)
   if (path.includes('http')) {
     let r_match = path.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/);
-    console.log(r_match)
     return r_match[1];
   } else {
     return "";
   }
 }
 
-
+// function that interacts with background.js
+//function that denies cookies from websites in the chrome storage
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-
   setTimeout(() => {
     if (msg.action == 'cookie_detected') {
       let buttonKey = msg.data
-      console.log(buttonKey);
-      let buttonId = buttonKey[url];
-      if (document.getElementById(buttonId) !== null && document.getElementById(buttonId) !== undefined) {
-        document.getElementById(buttonId).click()
+      let buttonValue = buttonKey[url];
+      if (document.getElementById(buttonValue) !== null && document.getElementById(buttonValue) !== undefined) {
+        document.getElementById(buttonValue).click()
       } else {
-        console.log(buttonId)
-        document.getElementsByClassName(buttonId)[0].click();
+        document.getElementsByClassName(buttonValue)[0].click();
       }
     }
   }, 4000)
   return Promise.resolve("Réponse pour éviter une erreur dans la console")
 });
 
-// try a more visual thing, like changing text to blue 
-// how to interact with popups js
-
-const button = document.getElementsByTagName("button")
+/*const button = document.getElementsByTagName("button")
 for (const el of Array.from(button)) {
   el.addEventListener("click", () => {
     let className = el.className
@@ -81,22 +59,10 @@ for (const el of Array.from(button)) {
       })
 
     }
-
-
-    // alert("button click" + el.className + " " + el.id)
-    // console.log(className)
-    // console.log(id)
-
-
   }, true);
-}
+}*/
 
 
-
-// button.addEventListener("click", ()=>{
-//   console.log("button click")
-//   alert("button click")
-// })
 
 
 
