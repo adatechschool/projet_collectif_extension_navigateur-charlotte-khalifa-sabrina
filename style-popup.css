@@ -11,8 +11,10 @@ img {
 
 #bg_cookies {
     background-color: antiquewhite;
-    height: 100px; 
+    height: 60px; 
     margin-top: 15px;
+    padding-top:30px;
+    font-size: 16px;
 }
 
 #number_cookies {
@@ -38,3 +40,5 @@ img {
 #button:hover{
     background-color: rgb(188, 143, 143, 0.5);
 }
+
+span {font-weight: bold;}

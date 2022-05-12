@@ -1,3 +1,16 @@
+chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+        setTimeout(() => {
+            if (message.action == 'messagePopup') {
+                console.log(message)
+            }
+        }, 5000)
+        return Promise.resolve("Réponse pour éviter une erreur dans la console")
+    })
+    })
+    
+
+
 chrome.storage.local.set({ "nike.com": "hf_cookie_text_cookieReject" }, function () {
     console.log('Value is set to');
 });

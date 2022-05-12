@@ -1,17 +1,26 @@
 setTimeout(() => {
-    let buttonTwo = document.querySelectorAll('button, span, div');
-    for (var i = 0; i < buttonTwo.length; i++) {
-      let lowerCaseButton = buttonTwo[i].innerHTML.toLowerCase().trim();
-      if (lowerCaseButton === "continuer sans accepter" || lowerCaseButton === "refuser" || lowerCaseButton === "rejeter" || lowerCaseButton === "tout refuser") {
-        buttonTwo[i].click();
-        console.log(buttonTwo[i]);
-        console.log(lowerCaseButton);
-      }
+  let buttonTwo = document.querySelectorAll('button, span, div, a');
+  for (var i = 0; i < buttonTwo.length; i++) {
+    let lowerCaseButton = buttonTwo[i].innerHTML.toLowerCase().trim();
+    if (lowerCaseButton === "continuer sans accepter" || lowerCaseButton === "refuser" || lowerCaseButton === "rejeter" || lowerCaseButton === "tout refuser" || lowerCaseButton === "non merci") {
+      buttonTwo[i].click();
+     /* let messagePopup="cookies bloqués sur" + url
+      console.log(messagePopup);
+      chrome.tabs.sendMessage({ action: "messagePopup", data: messagePopup }, function (response) {
+      });*/
+
+      chrome.runtime.sendMessage({
+        data: "Cookies bloqués sur " + '<span>' + url + '</span>'
+    }, function (response) {
+        console.dir(response);
+    });
     }
-    }, 4000)
+  }
+}, 4000)
+
 
 // Extract domain name from url using a regex
-let fullUrl = location.href 
+let fullUrl = location.href
 let url = getHostname(fullUrl)
 
 function getHostname(path) {
@@ -61,7 +70,6 @@ for (const el of Array.from(button)) {
     }
   }, true);
 }*/
-
 
 
 
